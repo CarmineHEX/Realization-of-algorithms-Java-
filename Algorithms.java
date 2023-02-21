@@ -12,7 +12,7 @@ public class Algorithms {
             {
                 if (array[i] > array[i + 1])
                 {
-                    array = SwapElements(array, i);
+                    array = SwapElements(array,i,i+1);
                     isNotEnd=true;
                 }
             }
@@ -20,12 +20,35 @@ public class Algorithms {
         }
         return array;
     }
-
-    private int[] SwapElements (int[] array, int index)
+    public  int[] SelectionSort(int[] array)
     {
-        int temp=array[index];
-        array[index]= array[index+1];
-        array[index+1]=temp;
+        int currentIndex=0;
+       while(currentIndex!=array.length)
+       {
+            array=SwapElements(array,currentIndex,FindMinValueIndex(array, currentIndex));
+            currentIndex++;
+       }
+        return array;
+    }
+    private int FindMinValueIndex(int[] array, int currentIndex)
+    {
+        int minValue=array[currentIndex];
+        int minValueIndex=currentIndex;
+        for(;currentIndex<array.length;currentIndex++)
+        {
+            if(array[currentIndex]<minValue)
+            {
+                minValue=array[currentIndex];
+                minValueIndex=currentIndex;
+            }
+        }
+        return minValueIndex;
+    }
+    private int[] SwapElements (int[] array, int firstIndex, int secondIndex)
+    {
+        int temp=array[firstIndex];
+        array[firstIndex]= array[secondIndex];
+        array[secondIndex]=temp;
         return array;
     }
 }
