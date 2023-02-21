@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args)
     {
-       int[] array1= new int[]{3,4,10,14,52,11,24,15,44,24};
+       int[] array= new int[]{3,4,10,14,52,11,24,15,44,24};
        Algorithms algorithm = new Algorithms();
-       array1=algorithm.BubbleSort(array1);
-       for (int num : array1)
+       array=algorithm.BubbleSort(array);
+       for (int num : array)
        {
            System.out.print(num+",");
        }
